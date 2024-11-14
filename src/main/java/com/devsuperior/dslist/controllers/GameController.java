@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dslist.dto.GamesDTO;
 import com.devsuperior.dslist.dto.GamesMinDTO;
-import com.devsuperior.dslist.entities.Games;
 import com.devsuperior.dslist.services.GamesService;
 
 @RestController
@@ -28,8 +27,7 @@ public class GameController {
 	
 	@GetMapping
 	public List<GamesMinDTO> findAll(){
-		List<Games> result = gamesService.findAll();
-		List<GamesMinDTO> dto = result.stream().map(games -> new GamesMinDTO(games)).toList();
-		return dto;
+		List<GamesMinDTO> result = gamesService.findAll();
+		return result;
 	}
 }
